@@ -1,6 +1,6 @@
 import Layout from '@/app/components/Layout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/app/components/ui/card';
-import { Package, AlertTriangle, ShoppingCart, Warehouse, TrendingUp, TrendingDown } from 'lucide-react';
+import { Package, AlertTriangle, Warehouse, TrendingUp, TrendingDown } from 'lucide-react';
 import { Badge } from '@/app/components/ui/badge';
 
 export default function Dashboard() {

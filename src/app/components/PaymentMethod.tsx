@@ -18,10 +18,10 @@ export default function PaymentMethod() {
       name: 'Virtual Account',
       icon: CreditCard,
       options: [
-        { bank: 'BCA', logo: '🏦' },
-        { bank: 'Mandiri', logo: '🏦' },
-        { bank: 'BNI', logo: '🏦' },
-        { bank: 'BRI', logo: '🏦' },
+        { name: 'BCA', logo: '🏦' },
+        { name: 'Mandiri', logo: '🏦' },
+        { name: 'BNI', logo: '🏦' },
+        { name: 'BRI', logo: '🏦' },
       ]
     },
     {
@@ -94,10 +94,10 @@ export default function PaymentMethod() {
                         <RadioGroup className="grid grid-cols-2 gap-3">
                           {method.options.map((option, idx) => (
                             <div key={idx} className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 dark:border-gray-700">
-                              <RadioGroupItem value={option.bank} id={option.bank} />
-                              <Label htmlFor={option.bank} className="flex items-center gap-2 cursor-pointer flex-1">
+                              <RadioGroupItem value={option.name} id={option.name} />
+                              <Label htmlFor={option.name} className="flex items-center gap-2 cursor-pointer flex-1">
                                 <span className="text-2xl">{option.logo}</span>
-                                <span>{option.bank}</span>
+                                <span>{option.name}</span>
                               </Label>
                             </div>
                           ))}
