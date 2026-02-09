@@ -29,8 +29,8 @@ export default function StockManagement() {
     <Layout>
       <div className="space-y-6">
         <div>
-          <h1 className="text-3xl font-bold">Manajemen Stok Gudang</h1>
-          <p className="text-gray-600 mt-1">Pantau pergerakan stok masuk, keluar, dan lokasi gudang</p>
+          <h1 className="text-3xl font-bold dark:text-gray-100">Manajemen Stok Gudang</h1>
+          <p className="text-gray-600 mt-1 dark:text-gray-400">Pantau pergerakan stok masuk, keluar, dan lokasi gudang</p>
         </div>
 
         <Tabs defaultValue="in" className="space-y-4">
@@ -44,8 +44,8 @@ export default function StockManagement() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <div className="bg-emerald-100 p-2 rounded-lg">
-                    <ArrowDown className="h-5 w-5 text-emerald-600" />
+                  <div className="bg-emerald-100 p-2 rounded-lg dark:bg-emerald-900/30">
+                    <ArrowDown className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
                   </div>
                   Stok Masuk
                 </CardTitle>
@@ -54,10 +54,10 @@ export default function StockManagement() {
               <CardContent>
                 <div className="space-y-4">
                   {stockIn.map((item, idx) => (
-                    <div key={idx} className="flex justify-between items-start p-4 bg-gray-50 rounded-lg">
+                    <div key={idx} className="flex justify-between items-start p-4 bg-gray-50 rounded-lg dark:bg-gray-800">
                       <div>
-                        <h3 className="font-semibold">{item.product}</h3>
-                        <div className="flex gap-4 mt-2 text-sm text-gray-600">
+                        <h3 className="font-semibold dark:text-gray-200">{item.product}</h3>
+                        <div className="flex gap-4 mt-2 text-sm text-gray-600 dark:text-gray-400">
                           <span>Size: {item.size}</span>
                         </div>
                         <div className="flex items-center gap-2 mt-1 text-xs text-gray-500">
@@ -77,8 +77,8 @@ export default function StockManagement() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <div className="bg-red-100 p-2 rounded-lg">
-                    <ArrowUp className="h-5 w-5 text-red-600" />
+                  <div className="bg-red-100 p-2 rounded-lg dark:bg-red-900/30">
+                    <ArrowUp className="h-5 w-5 text-red-600 dark:text-red-400" />
                   </div>
                   Stok Keluar
                 </CardTitle>
@@ -87,10 +87,10 @@ export default function StockManagement() {
               <CardContent>
                 <div className="space-y-4">
                   {stockOut.map((item, idx) => (
-                    <div key={idx} className="flex justify-between items-start p-4 bg-gray-50 rounded-lg">
+                    <div key={idx} className="flex justify-between items-start p-4 bg-gray-50 rounded-lg dark:bg-gray-800">
                       <div>
-                        <h3 className="font-semibold">{item.product}</h3>
-                        <div className="flex gap-4 mt-2 text-sm text-gray-600">
+                        <h3 className="font-semibold dark:text-gray-200">{item.product}</h3>
+                        <div className="flex gap-4 mt-2 text-sm text-gray-600 dark:text-gray-400">
                           <span>Size: {item.size}</span>
                         </div>
                         <div className="flex items-center gap-2 mt-1 text-xs text-gray-500">
@@ -110,8 +110,8 @@ export default function StockManagement() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <div className="bg-purple-100 p-2 rounded-lg">
-                    <MapPin className="h-5 w-5 text-purple-600" />
+                  <div className="bg-purple-100 p-2 rounded-lg dark:bg-purple-900/30">
+                    <MapPin className="h-5 w-5 text-purple-600 dark:text-purple-400" />
                   </div>
                   Lokasi Rak Gudang
                 </CardTitle>
@@ -120,19 +120,19 @@ export default function StockManagement() {
               <CardContent>
                 <div className="space-y-4">
                   {warehouseLocations.map((item, idx) => (
-                    <div key={idx} className="flex justify-between items-center p-4 bg-gray-50 rounded-lg">
+                    <div key={idx} className="flex justify-between items-center p-4 bg-gray-50 rounded-lg dark:bg-gray-800">
                       <div className="flex items-center gap-4">
-                        <div className="bg-white p-3 rounded-lg border">
-                          <MapPin className="h-5 w-5 text-gray-600" />
+                        <div className="bg-white p-3 rounded-lg border dark:bg-gray-700 dark:border-gray-600">
+                          <MapPin className="h-5 w-5 text-gray-600 dark:text-gray-300" />
                         </div>
                         <div>
-                          <h3 className="font-semibold">{item.product}</h3>
-                          <p className="text-sm text-gray-600 mt-1">Lokasi: {item.location}</p>
+                          <h3 className="font-semibold dark:text-gray-200">{item.product}</h3>
+                          <p className="text-sm text-gray-600 mt-1 dark:text-gray-400">Lokasi: {item.location}</p>
                         </div>
                       </div>
                       <div className="text-right flex items-center gap-3">
                         <div>
-                          <p className="font-bold">{item.qty} pcs</p>
+                          <p className="font-bold dark:text-gray-200">{item.qty} pcs</p>
                         </div>
                         <Badge variant={
                           item.status === 'Tersedia' ? 'default' :

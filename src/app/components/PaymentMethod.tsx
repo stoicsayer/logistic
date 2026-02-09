@@ -58,8 +58,8 @@ export default function PaymentMethod() {
     <Layout>
       <div className="space-y-6">
         <div>
-          <h1 className="text-3xl font-bold">Metode Pembayaran</h1>
-          <p className="text-gray-600 mt-1">Pilih metode pembayaran yang Anda inginkan</p>
+          <h1 className="text-3xl font-bold dark:text-gray-100">Metode Pembayaran</h1>
+          <p className="text-gray-600 mt-1 dark:text-gray-400">Pilih metode pembayaran yang Anda inginkan</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -69,24 +69,21 @@ export default function PaymentMethod() {
               return (
                 <Card
                   key={method.id}
-                  className={`cursor-pointer transition-all ${
-                    selectedMethod === method.id ? 'border-2 border-blue-500 bg-blue-50' : ''
-                  }`}
+                  className={`cursor-pointer transition-all ${selectedMethod === method.id ? 'border-2 border-blue-500 bg-blue-50 dark:bg-blue-900/20' : ''
+                    }`}
                   onClick={() => setSelectedMethod(method.id)}
                 >
                   <CardHeader>
                     <div className="flex items-center gap-3">
-                      <div className={`p-3 rounded-lg ${
-                        selectedMethod === method.id ? 'bg-blue-600' : 'bg-gray-100'
-                      }`}>
-                        <Icon className={`h-6 w-6 ${
-                          selectedMethod === method.id ? 'text-white' : 'text-gray-600'
-                        }`} />
+                      <div className={`p-3 rounded-lg ${selectedMethod === method.id ? 'bg-blue-600' : 'bg-gray-100 dark:bg-gray-800'
+                        }`}>
+                        <Icon className={`h-6 w-6 ${selectedMethod === method.id ? 'text-white' : 'text-gray-600 dark:text-gray-400'
+                          }`} />
                       </div>
                       <div>
                         <CardTitle>{method.name}</CardTitle>
                         {method.description && (
-                          <CardDescription className="mt-1">{method.description}</CardDescription>
+                          <CardDescription className="mt-1 dark:text-gray-400">{method.description}</CardDescription>
                         )}
                       </div>
                     </div>
@@ -96,7 +93,7 @@ export default function PaymentMethod() {
                       {method.id === 'va' ? (
                         <RadioGroup className="grid grid-cols-2 gap-3">
                           {method.options.map((option, idx) => (
-                            <div key={idx} className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-gray-50">
+                            <div key={idx} className="flex items-center space-x-2 p-3 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 dark:border-gray-700">
                               <RadioGroupItem value={option.bank} id={option.bank} />
                               <Label htmlFor={option.bank} className="flex items-center gap-2 cursor-pointer flex-1">
                                 <span className="text-2xl">{option.logo}</span>
@@ -110,7 +107,7 @@ export default function PaymentMethod() {
                           {method.options.map((option, idx) => (
                             <Button key={idx} variant="outline" className="h-16 text-left justify-start">
                               <span className="text-2xl mr-2">{option.logo}</span>
-                              {option.name}
+                              <span className="dark:text-gray-200">{option.name}</span>
                             </Button>
                           ))}
                         </div>
@@ -119,7 +116,7 @@ export default function PaymentMethod() {
                   )}
                   {method.id === 'qris' && selectedMethod === 'qris' && (
                     <CardContent>
-                      <div className="bg-white p-6 rounded-lg border-2 border-dashed flex flex-col items-center">
+                      <div className="bg-white p-6 rounded-lg border-2 border-dashed flex flex-col items-center dark:bg-gray-800 dark:border-gray-600">
                         <QrCode className="h-32 w-32 text-gray-400" />
                         <p className="text-sm text-gray-500 mt-4">QR Code akan ditampilkan setelah konfirmasi</p>
                       </div>
@@ -139,24 +136,24 @@ export default function PaymentMethod() {
               <CardContent className="space-y-4">
                 <div className="space-y-3">
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Biaya Penyimpanan</span>
-                    <span className="font-medium">Rp 450.000</span>
+                    <span className="text-gray-600 dark:text-gray-400">Biaya Penyimpanan</span>
+                    <span className="font-medium dark:text-gray-200">Rp 450.000</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Biaya Layanan</span>
-                    <span className="font-medium">Rp 125.000</span>
+                    <span className="text-gray-600 dark:text-gray-400">Biaya Layanan</span>
+                    <span className="font-medium dark:text-gray-200">Rp 125.000</span>
                   </div>
-                  <div className="border-t pt-3">
+                  <div className="border-t pt-3 dark:border-gray-700">
                     <div className="flex justify-between">
-                      <span className="font-semibold">Total</span>
-                      <span className="text-2xl font-bold text-blue-600">Rp 575.000</span>
+                      <span className="font-semibold dark:text-gray-200">Total</span>
+                      <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">Rp 575.000</span>
                     </div>
                   </div>
                 </div>
 
                 {selectedMethod && (
-                  <div className="p-3 bg-blue-50 rounded-lg">
-                    <p className="text-sm text-blue-700">
+                  <div className="p-3 bg-blue-50 rounded-lg dark:bg-blue-900/20">
+                    <p className="text-sm text-blue-700 dark:text-blue-300">
                       Metode: <span className="font-semibold">
                         {paymentMethods.find(m => m.id === selectedMethod)?.name}
                       </span>

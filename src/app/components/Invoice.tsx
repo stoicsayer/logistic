@@ -50,17 +50,17 @@ export default function Invoice() {
     <Layout>
       <div className="space-y-6">
         <div>
-          <h1 className="text-3xl font-bold">Invoice & Riwayat</h1>
-          <p className="text-gray-600 mt-1">Invoice otomatis dan riwayat transaksi</p>
+          <h1 className="text-3xl font-bold dark:text-gray-100">Invoice & Riwayat</h1>
+          <p className="text-gray-600 mt-1 dark:text-gray-400">Invoice otomatis dan riwayat transaksi</p>
         </div>
 
         {/* Current Invoice Detail */}
-        <Card className="border-2 border-emerald-200">
-          <CardHeader className="bg-gradient-to-r from-emerald-50 to-blue-50">
+        <Card className="border-2 border-emerald-200 dark:border-emerald-800">
+          <CardHeader className="bg-gradient-to-r from-emerald-50 to-blue-50 dark:from-emerald-900/20 dark:to-blue-900/20">
             <div className="flex justify-between items-start">
               <div>
                 <CardTitle className="text-2xl">Invoice Terbaru</CardTitle>
-                <CardDescription className="text-base mt-2">
+                <CardDescription className="text-base mt-2 dark:text-gray-400">
                   {currentInvoice.number}
                 </CardDescription>
               </div>
@@ -71,7 +71,7 @@ export default function Invoice() {
             </div>
           </CardHeader>
           <CardContent className="pt-6">
-            <div className="bg-white border rounded-lg p-6 space-y-6">
+            <div className="bg-white border rounded-lg p-6 space-y-6 dark:bg-gray-800 dark:border-gray-700">
               {/* Header */}
               <div className="flex justify-between items-start border-b pb-6">
                 <div>
@@ -79,28 +79,28 @@ export default function Invoice() {
                     <Warehouse className="h-6 w-6 text-emerald-600" />
                     <h2 className="text-2xl font-bold text-emerald-600">Inventra</h2>
                   </div>
-                  <p className="text-sm text-gray-600">Gudang Pintar untuk UMKM</p>
-                  <p className="text-sm text-gray-600">Jl. Raya Industri No. 123</p>
-                  <p className="text-sm text-gray-600">Jakarta Barat, 11730</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Gudang Pintar untuk UMKM</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Jl. Raya Industri No. 123</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Jakarta Barat, 11730</p>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm text-gray-600">Tanggal Invoice</p>
-                  <p className="font-semibold">{new Date(currentInvoice.date).toLocaleDateString('id-ID')}</p>
-                  <p className="text-sm text-gray-600 mt-2">Periode</p>
-                  <p className="font-semibold">{currentInvoice.period}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Tanggal Invoice</p>
+                  <p className="font-semibold dark:text-gray-200">{new Date(currentInvoice.date).toLocaleDateString('id-ID')}</p>
+                  <p className="text-sm text-gray-600 mt-2 dark:text-gray-400">Periode</p>
+                  <p className="font-semibold dark:text-gray-200">{currentInvoice.period}</p>
                 </div>
               </div>
 
               {/* Details */}
               <div className="space-y-3">
                 <div className="flex justify-between py-2">
-                  <span className="text-gray-600">Biaya Penyimpanan Gudang</span>
-                  <span className="font-medium">Rp 500.000</span>
+                  <span className="text-gray-600 dark:text-gray-300">Biaya Penyimpanan Gudang</span>
+                  <span className="font-medium dark:text-gray-200">Rp 500.000</span>
                 </div>
-                <div className="border-t pt-3">
+                <div className="border-t pt-3 dark:border-gray-700">
                   <div className="flex justify-between items-center">
-                    <span className="text-lg font-semibold">Total</span>
-                    <span className="text-3xl font-bold text-emerald-600">
+                    <span className="text-lg font-semibold dark:text-gray-200">Total</span>
+                    <span className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">
                       Rp {currentInvoice.amount.toLocaleString('id-ID')}
                     </span>
                   </div>
@@ -108,15 +108,15 @@ export default function Invoice() {
               </div>
 
               {/* Payment Info */}
-              <div className="bg-emerald-50 p-4 rounded-lg border border-emerald-200">
+              <div className="bg-emerald-50 p-4 rounded-lg border border-emerald-200 dark:bg-emerald-900/20 dark:border-emerald-800">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <p className="text-sm text-gray-600">Metode Pembayaran</p>
-                    <p className="font-semibold">{currentInvoice.paymentMethod}</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Metode Pembayaran</p>
+                    <p className="font-semibold dark:text-gray-200">{currentInvoice.paymentMethod}</p>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-600">Tanggal Pembayaran</p>
-                    <p className="font-semibold">
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Tanggal Pembayaran</p>
+                    <p className="font-semibold dark:text-gray-200">
                       {new Date(currentInvoice.paidDate).toLocaleDateString('id-ID')}
                     </p>
                   </div>
@@ -155,18 +155,18 @@ export default function Invoice() {
               {invoices.slice(1).map((invoice) => (
                 <div
                   key={invoice.number}
-                  className="flex justify-between items-center p-4 bg-gray-50 rounded-lg"
+                  className="flex justify-between items-center p-4 bg-gray-50 rounded-lg dark:bg-gray-800"
                 >
                   <div>
-                    <p className="font-semibold">{invoice.number}</p>
-                    <p className="text-sm text-gray-600 mt-1">{invoice.period}</p>
-                    <p className="text-xs text-gray-500 mt-1">
+                    <p className="font-semibold dark:text-gray-200">{invoice.number}</p>
+                    <p className="text-sm text-gray-600 mt-1 dark:text-gray-400">{invoice.period}</p>
+                    <p className="text-xs text-gray-500 mt-1 dark:text-gray-500">
                       Dibayar: {new Date(invoice.paidDate).toLocaleDateString('id-ID')}
                     </p>
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="text-right">
-                      <p className="font-bold">Rp {invoice.amount.toLocaleString('id-ID')}</p>
+                      <p className="font-bold dark:text-gray-200">Rp {invoice.amount.toLocaleString('id-ID')}</p>
                       <Badge className="bg-emerald-100 text-emerald-700 mt-1">Lunas</Badge>
                     </div>
                     <div className="flex gap-2">
@@ -192,6 +192,6 @@ export default function Invoice() {
           </CardContent>
         </Card>
       </div>
-    </Layout>
+    </Layout >
   );
 }

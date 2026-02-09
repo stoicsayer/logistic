@@ -31,15 +31,15 @@ export default function CoWarehouse() {
     <Layout>
       <div className="space-y-6">
         <div>
-          <h1 className="text-3xl font-bold">Gudang Bersama</h1>
-          <p className="text-gray-600 mt-1">Informasi lokasi dan jadwal pengiriman gudang</p>
+          <h1 className="text-3xl font-bold dark:text-gray-100">Gudang Bersama</h1>
+          <p className="text-gray-600 mt-1 dark:text-gray-400">Informasi lokasi dan jadwal pengiriman gudang</p>
         </div>
 
         {/* Warehouse Info */}
-        <Card className="border-2 border-emerald-200 bg-gradient-to-br from-emerald-50 to-blue-50">
+        <Card className="border-2 border-emerald-200 bg-gradient-to-br from-emerald-50 to-blue-50 dark:from-emerald-900/20 dark:to-blue-900/20 dark:border-emerald-800">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Warehouse className="h-6 w-6 text-emerald-600" />
+              <Warehouse className="h-6 w-6 text-emerald-600 dark:text-emerald-400" />
               {warehouseInfo.location}
             </CardTitle>
             <CardDescription className="flex items-center gap-2 mt-2">
@@ -49,17 +49,17 @@ export default function CoWarehouse() {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-white p-4 rounded-lg">
-                <p className="text-sm text-gray-600">Kapasitas Terpakai</p>
-                <p className="text-2xl font-bold text-emerald-600">{warehouseInfo.capacity}%</p>
+              <div className="bg-white p-4 rounded-lg dark:bg-gray-800">
+                <p className="text-sm text-gray-600 dark:text-gray-400">Kapasitas Terpakai</p>
+                <p className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">{warehouseInfo.capacity}%</p>
               </div>
-              <div className="bg-white p-4 rounded-lg">
-                <p className="text-sm text-gray-600">Rak Terpakai</p>
-                <p className="text-2xl font-bold">{warehouseInfo.totalSpace}</p>
+              <div className="bg-white p-4 rounded-lg dark:bg-gray-800">
+                <p className="text-sm text-gray-600 dark:text-gray-400">Rak Terpakai</p>
+                <p className="text-2xl font-bold dark:text-gray-200">{warehouseInfo.totalSpace}</p>
               </div>
-              <div className="bg-white p-4 rounded-lg">
-                <p className="text-sm text-gray-600">Biaya Bulanan</p>
-                <p className="text-2xl font-bold text-blue-600">{warehouseInfo.monthlyFee}</p>
+              <div className="bg-white p-4 rounded-lg dark:bg-gray-800">
+                <p className="text-sm text-gray-600 dark:text-gray-400">Biaya Bulanan</p>
+                <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">{warehouseInfo.monthlyFee}</p>
               </div>
             </div>
           </CardContent>
@@ -77,19 +77,19 @@ export default function CoWarehouse() {
             </CardHeader>
             <CardContent className="space-y-4">
               {schedule.map((item, idx) => (
-                <div key={idx} className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                  <div className={`p-2 rounded-lg ${item.type === 'Pengiriman' ? 'bg-blue-100' : 'bg-emerald-100'}`}>
+                <div key={idx} className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg dark:bg-gray-800">
+                  <div className={`p-2 rounded-lg ${item.type === 'Pengiriman' ? 'bg-blue-100 dark:bg-blue-900/30' : 'bg-emerald-100 dark:bg-emerald-900/30'}`}>
                     {item.type === 'Pengiriman' ? (
-                      <Truck className="h-5 w-5 text-blue-600" />
+                      <Truck className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                     ) : (
-                      <Package className="h-5 w-5 text-emerald-600" />
+                      <Package className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
                     )}
                   </div>
                   <div className="flex-1">
                     <div className="flex justify-between items-start">
                       <div>
-                        <h3 className="font-semibold">{item.type}</h3>
-                        <p className="text-sm text-gray-600 mt-1">{item.items}</p>
+                        <h3 className="font-semibold dark:text-gray-200">{item.type}</h3>
+                        <p className="text-sm text-gray-600 mt-1 dark:text-gray-400">{item.items}</p>
                       </div>
                       <Badge>{item.status}</Badge>
                     </div>
@@ -117,18 +117,18 @@ export default function CoWarehouse() {
                 <div key={idx}>
                   <div className="flex justify-between items-center mb-2">
                     <div>
-                      <p className="font-medium">{item.category}</p>
-                      <p className="text-sm text-gray-600">{item.qty} pcs</p>
+                      <p className="font-medium dark:text-gray-200">{item.category}</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">{item.qty} pcs</p>
                     </div>
-                    <span className="text-sm font-semibold">{item.percentage}%</span>
+                    <span className="text-sm font-semibold dark:text-gray-200">{item.percentage}%</span>
                   </div>
                   <Progress value={item.percentage} className="h-2" />
                 </div>
               ))}
-              <div className="pt-4 border-t">
+              <div className="pt-4 border-t dark:border-gray-700">
                 <div className="flex justify-between items-center">
-                  <p className="font-semibold">Total Produk</p>
-                  <p className="text-lg font-bold">
+                  <p className="font-semibold dark:text-gray-200">Total Produk</p>
+                  <p className="text-lg font-bold dark:text-gray-100">
                     {storageDetail.reduce((acc, item) => acc + item.qty, 0)} pcs
                   </p>
                 </div>

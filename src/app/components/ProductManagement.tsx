@@ -70,8 +70,8 @@ export default function ProductManagement() {
       <div className="space-y-6">
         <div className="flex justify-between items-center">
           <div>
-            <h1 className="text-3xl font-bold">Manajemen Produk</h1>
-            <p className="text-gray-600 mt-1">Kelola produk baju usaha Anda</p>
+            <h1 className="text-3xl font-bold dark:text-gray-100">Manajemen Produk</h1>
+            <p className="text-gray-600 mt-1 dark:text-gray-400">Kelola produk baju usaha Anda</p>
           </div>
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
             <DialogTrigger asChild>
@@ -162,25 +162,25 @@ export default function ProductManagement() {
           <CardContent>
             <div className="space-y-4">
               {filteredProducts.map((product) => (
-                <div key={product.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                <div key={product.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg dark:bg-gray-800">
                   <div className="flex-1">
-                    <h3 className="font-semibold">{product.name}</h3>
+                    <h3 className="font-semibold dark:text-gray-200">{product.name}</h3>
                     <div className="flex gap-4 mt-2">
                       <div>
-                        <p className="text-xs text-gray-500">Kategori</p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">Kategori</p>
                         <Badge variant="outline">{product.category}</Badge>
                       </div>
                       <div>
-                        <p className="text-xs text-gray-500">Ukuran</p>
-                        <p className="text-sm">{product.sizes.join(', ')}</p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">Ukuran</p>
+                        <p className="text-sm dark:text-gray-300">{product.sizes.join(', ')}</p>
                       </div>
                       <div>
-                        <p className="text-xs text-gray-500">Warna</p>
-                        <p className="text-sm">{product.colors.join(', ')}</p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">Warna</p>
+                        <p className="text-sm dark:text-gray-300">{product.colors.join(', ')}</p>
                       </div>
                       <div>
-                        <p className="text-xs text-gray-500">Stok</p>
-                        <p className="text-sm font-bold">{product.stock} pcs</p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">Stok</p>
+                        <p className="text-sm font-bold dark:text-gray-200">{product.stock} pcs</p>
                       </div>
                     </div>
                   </div>

@@ -53,8 +53,8 @@ export default function Profile() {
     <Layout>
       <div className="space-y-6">
         <div>
-          <h1 className="text-3xl font-bold">Profil Usaha</h1>
-          <p className="text-gray-600 mt-1">
+          <h1 className="text-3xl font-bold dark:text-gray-100">Profil Usaha</h1>
+          <p className="text-gray-600 mt-1 dark:text-gray-400">
             Data UMKM dan pengaturan akun
           </p>
         </div>

@@ -29,8 +29,8 @@ export default function Notifications() {
     <Layout>
       <div className="space-y-6">
         <div>
-          <h1 className="text-3xl font-bold">Notifikasi & Restock</h1>
-          <p className="text-gray-600 mt-1">Pantau stok menipis dan rekomendasi restock</p>
+          <h1 className="text-3xl font-bold dark:text-gray-100">Notifikasi & Restock</h1>
+          <p className="text-gray-600 mt-1 dark:text-gray-400">Pantau stok menipis dan rekomendasi restock</p>
         </div>
 
         <Tabs defaultValue="stock" className="space-y-4">
@@ -44,8 +44,8 @@ export default function Notifications() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <div className="bg-orange-100 p-2 rounded-lg">
-                    <AlertTriangle className="h-5 w-5 text-orange-600" />
+                  <div className="bg-orange-100 p-2 rounded-lg dark:bg-orange-900/30">
+                    <AlertTriangle className="h-5 w-5 text-orange-600 dark:text-orange-400" />
                   </div>
                   Notifikasi Stok Menipis
                 </CardTitle>
@@ -56,24 +56,22 @@ export default function Notifications() {
                   {stockAlerts.map((alert, idx) => (
                     <div
                       key={idx}
-                      className={`p-4 rounded-lg border-l-4 ${
-                        alert.severity === 'urgent'
-                          ? 'bg-red-50 border-red-500'
-                          : 'bg-orange-50 border-orange-500'
-                      }`}
+                      className={`p-4 rounded-lg border-l-4 ${alert.severity === 'urgent'
+                          ? 'bg-red-50 border-red-500 dark:bg-red-900/20'
+                          : 'bg-orange-50 border-orange-500 dark:bg-orange-900/20'
+                        }`}
                     >
                       <div className="flex justify-between items-start">
                         <div className="flex-1">
                           <div className="flex items-center gap-2">
                             <AlertTriangle
-                              className={`h-5 w-5 ${
-                                alert.severity === 'urgent' ? 'text-red-600' : 'text-orange-600'
-                              }`}
+                              className={`h-5 w-5 ${alert.severity === 'urgent' ? 'text-red-600 dark:text-red-400' : 'text-orange-600 dark:text-orange-400'
+                                }`}
                             />
-                            <h3 className="font-semibold">{alert.product}</h3>
+                            <h3 className="font-semibold dark:text-gray-200">{alert.product}</h3>
                           </div>
-                          <p className="text-sm text-gray-600 mt-2">
-                            Tersisa <span className="font-bold">{alert.stock} pcs</span> (min: {alert.minStock} pcs)
+                          <p className="text-sm text-gray-600 mt-2 dark:text-gray-400">
+                            Tersisa <span className="font-bold dark:text-gray-200">{alert.stock} pcs</span> (min: {alert.minStock} pcs)
                           </p>
                           <p className="text-xs text-gray-500 mt-1">{alert.time}</p>
                         </div>
@@ -95,8 +93,8 @@ export default function Notifications() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <div className="bg-blue-100 p-2 rounded-lg">
-                    <Package className="h-5 w-5 text-blue-600" />
+                  <div className="bg-blue-100 p-2 rounded-lg dark:bg-blue-900/30">
+                    <Package className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                   </div>
                   Rekomendasi Restock Otomatis
                 </CardTitle>
@@ -105,19 +103,19 @@ export default function Notifications() {
               <CardContent>
                 <div className="space-y-4">
                   {restockSuggestions.map((suggestion, idx) => (
-                    <div key={idx} className="p-4 bg-gray-50 rounded-lg">
+                    <div key={idx} className="p-4 bg-gray-50 rounded-lg dark:bg-gray-800">
                       <div className="flex justify-between items-start">
                         <div className="flex-1">
                           <div className="flex items-center gap-2">
-                            <h3 className="font-semibold">{suggestion.product}</h3>
+                            <h3 className="font-semibold dark:text-gray-200">{suggestion.product}</h3>
                             <Badge
                               variant={suggestion.priority === 'High' ? 'destructive' : 'default'}
                             >
                               {suggestion.priority}
                             </Badge>
                           </div>
-                          <p className="text-sm text-gray-600 mt-2">
-                            Disarankan: <span className="font-bold">{suggestion.suggested} pcs</span>
+                          <p className="text-sm text-gray-600 mt-2 dark:text-gray-400">
+                            Disarankan: <span className="font-bold dark:text-gray-200">{suggestion.suggested} pcs</span>
                           </p>
                           <p className="text-xs text-gray-500 mt-1">{suggestion.reason}</p>
                         </div>
@@ -140,8 +138,8 @@ export default function Notifications() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <div className="bg-emerald-100 p-2 rounded-lg">
-                    <Truck className="h-5 w-5 text-emerald-600" />
+                  <div className="bg-emerald-100 p-2 rounded-lg dark:bg-emerald-900/30">
+                    <Truck className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
                   </div>
                   Pengingat Pengiriman
                 </CardTitle>
@@ -150,30 +148,28 @@ export default function Notifications() {
               <CardContent>
                 <div className="space-y-4">
                   {deliveryAlerts.map((alert, idx) => (
-                    <div key={idx} className="p-4 bg-gray-50 rounded-lg">
+                    <div key={idx} className="p-4 bg-gray-50 rounded-lg dark:bg-gray-800">
                       <div className="flex items-start gap-3">
                         <div
-                          className={`p-2 rounded-lg ${
-                            alert.status === 'on-way'
-                              ? 'bg-blue-100'
+                          className={`p-2 rounded-lg ${alert.status === 'on-way'
+                              ? 'bg-blue-100 dark:bg-blue-900/30'
                               : alert.status === 'scheduled'
-                              ? 'bg-yellow-100'
-                              : 'bg-emerald-100'
-                          }`}
+                                ? 'bg-yellow-100 dark:bg-yellow-900/30'
+                                : 'bg-emerald-100 dark:bg-emerald-900/30'
+                            }`}
                         >
                           {alert.status === 'completed' ? (
-                            <CheckCircle2 className="h-5 w-5 text-emerald-600" />
+                            <CheckCircle2 className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
                           ) : (
                             <Truck
-                              className={`h-5 w-5 ${
-                                alert.status === 'on-way' ? 'text-blue-600' : 'text-yellow-600'
-                              }`}
+                              className={`h-5 w-5 ${alert.status === 'on-way' ? 'text-blue-600 dark:text-blue-400' : 'text-yellow-600 dark:text-yellow-400'
+                                }`}
                             />
                           )}
                         </div>
                         <div className="flex-1">
-                          <p className="font-medium">{alert.message}</p>
-                          <p className="text-sm text-gray-600 mt-1">ETA: {alert.eta}</p>
+                          <p className="font-medium dark:text-gray-200">{alert.message}</p>
+                          <p className="text-sm text-gray-600 mt-1 dark:text-gray-400">ETA: {alert.eta}</p>
                         </div>
                         <Badge
                           variant={
@@ -183,8 +179,8 @@ export default function Notifications() {
                           {alert.status === 'on-way'
                             ? 'Dalam Perjalanan'
                             : alert.status === 'scheduled'
-                            ? 'Terjadwal'
-                            : 'Selesai'}
+                              ? 'Terjadwal'
+                              : 'Selesai'}
                         </Badge>
                       </div>
                     </div>
